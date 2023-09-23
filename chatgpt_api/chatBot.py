@@ -1,4 +1,4 @@
-import openai
+"""import openai
 from dotenv import load_dotenv
 import os
 
@@ -19,4 +19,4 @@ while input != "quit()":
         messages=messages)
     reply = response["choices"][0]["message"]["content"]
     messages.append({"role": "assistant", "content": reply})
-    print("\n" + reply + "\n")
+    print("\n" + reply + "\n")"""
