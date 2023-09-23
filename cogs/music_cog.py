@@ -123,6 +123,7 @@ class music_cog(commands.Cog):
     @commands.command(name="clear", aliases=["c", "bin"], help="Stops the current song and move to bin")
     async def clear(self, ctx, *args):
         if self.vc !=
+        
 
     
 
