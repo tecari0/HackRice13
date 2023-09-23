@@ -59,7 +59,7 @@ class music_cog(commands.Cog):
 
 
 
-    @commands.commend(name ='play', aliases = ['p','playing'], help= 'play the selected song from youtube')
+    @commands.command(name ='play', aliases = ['p','playing'], help= 'play the selected song from youtube')
     async def play(self, ctx, *args):
         query = ''.join(args)
 
@@ -122,7 +122,20 @@ class music_cog(commands.Cog):
 
     @commands.command(name="clear", aliases=["c", "bin"], help="Stops the current song and move to bin")
     async def clear(self, ctx, *args):
-        if self.vc !=
+        if self.vc != None and self.is_playing:
+            self.vc.stop()
+        self.music_queue = []
+        await ctx.send("The queue has been cleared.")
+
+    @commands.command(name="leave", aliases=["disconnect", "l", "d"], help="Kick the bot from the voice channel")
+    async def leave(self, ctx):
+        self.is_playing = False
+        self.is_paused = False
+        await self.vc.disconnect()
+
+    
+
+
         
 
     

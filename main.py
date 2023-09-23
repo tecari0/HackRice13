@@ -1,9 +1,9 @@
 import discord
 from discord.ext import commands
 import asyncio
-from music_cog import music_cog
-from help_cog import help_cog
-import openai.py
+from cogs import music_cog
+from cogs import help_cog
+import openai
 
 from dotenv import load_dotenv
 import os
@@ -13,9 +13,8 @@ load_dotenv()
 discord_token = os.getenv("DISCORD_TOKEN")
 
 class MyClient(discord.Client):
-    @bot.event
-    async def on_ready(self):
-        print("Successfully logged on as: ", self.user)
+	async def on_ready(self):
+		print("Successfully logged on as: ", self.user)
 
 	async def on_message(self, message):
 		activate = ["/reccomend", "/mood"]
@@ -29,7 +28,7 @@ class MyClient(discord.Client):
 				command = message.content.split('')[0]
 				user_message = message.content.replace(text, '')
 				print(command, user_message)
-    
+
 		if command in activate: 
 			bot_response = chatgpt_response(prompt = user_message)
 			try:
@@ -47,8 +46,8 @@ client = MyClient(intents=intents)
 
 
 intents = discord.Intents.all()
-bot = commands.Bot(command_prefix=commands.when_mentioned_or("!"), intents=intents)
 
+bot.remove_command('help')
 
 bot.add_cog(help_cog(bot))
 bot.add_cog(music_cog(bot))
