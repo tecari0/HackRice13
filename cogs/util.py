@@ -49,9 +49,9 @@ class Util(commands.Cog):
 
 
     @commands.command(name='timer', # brief and description are what show up in the help menu
-                      brief='Get pinged after given number of seconds elapses',
-                      description='Get pinged after given number of seconds elapses',
-                      aliases=['remind']) # aliases give shorthands for the command
+                    brief='Get pinged after given number of seconds elapses',
+                    description='Get pinged after given number of seconds elapses',
+                    aliases=['remind']) # aliases give shorthands for the command
     async def timer(self, ctx: commands.Context, time: int):
         """
         Make a random choice between the arguments given
