@@ -10,12 +10,9 @@ async def on_ready():
 	print(f'Bot {bot.user} is online! Id: {bot.user.id}')
 
 async def main():
-	await bot.start('INSERT YOUR OWN TOKEN HERE!!!')
+	await bot.start('MTE1NDk3MDI3NzY2MzQ4NTk3Mg.G8TCNE.-sfxMla4CzX4fhiYc28szyrR_AThnu7xo4EFNk')
 
 @bot.command()
 async def timer(ctx: commands.Context, time: int):
 	await asyncio.sleep(time)
 	await ctx.send("your time is up!")
-
-
-asyncio.run(main())

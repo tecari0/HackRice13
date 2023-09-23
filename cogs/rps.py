@@ -10,9 +10,9 @@ class RPS(commands.Cog):
         self.client = client
 
     @commands.command(name='challenge', # brief and description are what show up in the help menu
-                      brief='Play Rock, Paper, Scissors',
-                      description='Play Rock, Paper, Scissors by pinging a friend; can also set how many rounds you want to play',
-                      aliases=['chall', 'rps']) # aliases give shorthands for the command
+                    brief='Play Rock, Paper, Scissors',
+                    description='Play Rock, Paper, Scissors by pinging a friend; can also set how many rounds you want to play',
+                    aliases=['chall', 'rps']) # aliases give shorthands for the command
     async def challenge(self,
                         ctx: commands.Context, # descriptions of parameters appear in help menu with this command specified
                         member: discord.Member = commands.parameter(description='The member you want to challenge'),
