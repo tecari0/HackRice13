@@ -4,7 +4,11 @@ import asyncio
 
 from cogs.discord_api import recommend
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+discord_token = os.getenv("DISCORD_TOKEN")
 
 
 # from dotenv import load_dotenv
@@ -31,7 +35,7 @@ async def main():
         print('Failed to load extensions and cog.')
         print(str(e))
 
-    await bot.start('MTE1NTI1OTUzMTA1MjQ0OTg3Mg.G7Lkdh.J0HGDQNnuWlpb6KHq-Gqh8Sto0m7LaA6es6VVI')
+    await bot.start(str(discord_token))
 
 asyncio.run(main())
 

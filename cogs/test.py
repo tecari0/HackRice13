@@ -1,7 +1,6 @@
 import os
 import openai
 openai.api_key= os.getenv("OPENAI_API_KEY")
-#openai.api_key = "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"
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
 # def get_completion(prompt, model="gpt-4"):
