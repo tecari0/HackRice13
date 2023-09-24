@@ -27,7 +27,7 @@ class recommend(commands.Cog):
 		print("hello")
 
 	@commands.command(name='test', brief='test someone', description='test someone')
-	async def fuck(self, ctx : commands.Context, member: discord.Member = commands.parameter(description='The member you want to challenge')):
+	async def test(self, ctx : commands.Context, member: discord.Member = commands.parameter(description='The member you want to challenge')):
 		await ctx.channel.send(f'{ctx.author.mention} wants to test {member.mention} (this is a test command)')
 		print("get tested")
 
