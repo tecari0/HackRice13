@@ -7,9 +7,8 @@ import youtube_dl
 
 
 load_dotenv()
-# Get the API token from the .env file.
-DISCORD_TOKEN = "MTE1NTI1OTUzMTA1MjQ0OTg3Mg.G7Lkdh.J0HGDQNnuWlpb6KHq-Gqh8Sto0m7LaA6es6VVI"
-#os.getenv("discord_token")
+
+discord_token = os.getenv("discord_token")
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
@@ -108,4 +107,4 @@ if __name__ == "__main__" :
     async def on_ready():
         print(f'Logged in as {bot.user} (ID: {bot.user.id})')
         print('------')
-    bot.run(DISCORD_TOKEN)
+    bot.run(discord_token)
