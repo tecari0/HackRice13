@@ -15,6 +15,8 @@ intents.message_content = True
 
 discord_token = os.getenv("DISCORD_TOKEN")
 
+openai.api_key= os.getenv("CHATGPT_API_KEY")
+
 class recommend(commands.Cog):
 	def __init__(self, client):
 		self.client = client
@@ -31,14 +33,13 @@ class recommend(commands.Cog):
 
 	@commands.command(name='recommend', brief='recommend songs', description='recommend some songs based on input or mood', aliases=['mood'])
 	async def reccomend(self, ctx: commands.Context, *args):
-		print("123thiswork")
-		activate = ["/recommend", "/mood"]
 		message = " ".join(args)
 		print(message)
 
 	
 		await ctx.channel.send(f'{ctx.author.mention} ur mum says hi!')
 		bot_response = chatgpt_response(message)
+		await ctx.channel.send(f'{ctx.author.mention} ur mum says hi again omg it work???!')
 		try:
 			resp = await asyncio.wait_for(ctx.channel.send(f"Here are some recommendations based on your input! Hope you enjoy! {bot_response}"), timeout=20)
 		except asyncio.TimeoutError: # Handle the TimeoutError here
@@ -46,14 +47,16 @@ class recommend(commands.Cog):
 
 
 def chatgpt_response(prompt):
+	messages = [{"role": "user", "content": "give a list of songs with the following prompt:" + prompt}]
 	response = openai.Completion.create(
-	model = "text-davinci-002",
-	prompt = prompt,
+	model = "gpt-3.5-turbo-0613",
+	messages = messages,
 	temperature = 1,
 	max_tokens = 100
 	)
+	print("ur mom says hi here in the call function omg")
 	prompt_response = ""
-	response_dict = response.get("choices") # type: ignore
+	response_dict = response.get("choices")
 	if response_dict and len(response_dict) > 0:
 		prompt_response = response_dict[0]["text"]
 	return prompt_response
