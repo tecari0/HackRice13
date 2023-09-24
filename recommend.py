@@ -31,7 +31,7 @@ async def main():
         print('Failed to load extensions and cog.')
         print(str(e))
 
-    await bot.start('MTE1NDk3MDI3NzY2MzQ4NTk3Mg.G8TCNE.-sfxMla4CzX4fhiYc28szyrR_AThnu7xo4EFNk')
+    await bot.start('MTE1NTI1OTUzMTA1MjQ0OTg3Mg.G7Lkdh.J0HGDQNnuWlpb6KHq-Gqh8Sto0m7LaA6es6VVI')
 
 asyncio.run(main())
 
